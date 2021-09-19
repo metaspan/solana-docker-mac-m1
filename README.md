@@ -6,7 +6,7 @@ Docker config for Mac M1, to support development on Solana
 ``` bash
 git clone https://github.com/metaspan/solanalabs-solana-docker-mac-m1
 cd solanalabs-solana-docker-mac-m1
-docker build -t metaspan/solana-docker-mac-m1
+docker build . -t metaspan/solana-docker-mac-m1
 ```
 
 # Usage
