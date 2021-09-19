@@ -12,7 +12,7 @@ docker build -t metaspan/solana-docker-mac-m1
 # Usage
 
 ```bash
-docker run -it metaspan/solana-docker-mac-m1 solana-test-validator
+docker run -it -p 8899:8899 metaspan/solana-docker-mac-m1 solana-test-validator
 ```
 
 # Refs
