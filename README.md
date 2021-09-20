@@ -24,7 +24,7 @@ docker run -it -p 8899:8899 --name solana metaspan/solana-docker-mac-m1
 ### Test Validator
 You can start a validator directly
 ```bash
-docker run -it -p 8899:8899 --name solana metaspan/solana-docker-mac-m1 solana-test-validator
+docker run -it -p 8899:8899 -p 8900:8900 --name solana metaspan/solana-docker-mac-m1 solana-test-validator
 ```
 
 ## Reuse a container
