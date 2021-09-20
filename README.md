@@ -18,7 +18,7 @@ Note, `docker run` will create a new container. If you want to re-use this conta
 ### Command line
 This will give you a bash prompt on the container
 ```bash
-docker run -it -p 8899:8899 --name solana metaspan/solana-docker-mac-m1
+docker run -it -p 8899:8899 -p 8900:8900 --name solana metaspan/solana-docker-mac-m1
 ```
 
 ### Test Validator
