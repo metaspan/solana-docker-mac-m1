@@ -44,7 +44,9 @@ RUN apt-get install -y bzip2 \
     libssl-dev libudev-dev clang \
     vim wget curl gcc pkg-config
 
-RUN wget -O /opt/solana-1.7.12.tar.gz https://github.com/solana-labs/solana/archive/refs/tags/v1.7.12.tar.gz
+ARG SOLANA_VERSION=1.9.9
+
+RUN wget -O /opt/solana-${SOLANA_VERSION}.tar.gz https://github.com/solana-labs/solana/archive/refs/tags/v${SOLANA_VERSION}.tar.gz
 # COPY solana-1.7.12.tar.gz /opt/solana-1.7.12.tar.gz
 
 # rustup: installs cargo, clippy rust-docs, rust-std, rustc, rustfmt
@@ -55,10 +57,10 @@ RUN . ~/.cargo/env && echo $PATH
 # RUN export PATH=~/.cargo/bin:$PATH 
 ENV PATH=~/.cargo/bin:$PATH
 
-RUN cd /opt; tar -xvf solana-1.7.12.tar.gz
-RUN cd /opt/solana-1.7.12; ./scripts/cargo-install-all.sh .
+RUN cd /opt; tar -xvf solana-${SOLANA_VERSION}.tar.gz
+RUN cd /opt/solana-${SOLANA_VERSION}; ./scripts/cargo-install-all.sh .
 
-ENV PATH=/opt/solana-1.7.12/bin:$PATH
+ENV PATH=/opt/solana-${SOLANA_VERSION}/bin:$PATH
 
 # # Create a .profile
 # RUN echo 'PATH=$PATH:$PATH:~/.cargo/bin:/opt/solana-1.7.12/bin' >> ~/.profile
@@ -66,7 +68,7 @@ ENV PATH=/opt/solana-1.7.12/bin:$PATH
 # RUN echo 'PATH=$PATH:/$PATH:~/.cargo/bin:/opt/solana-1.7.12/bin' >> ~/.bash_profile
 
 # Update bashrc
-RUN echo 'PATH=$PATH:/$PATH:/opt/solana-1.7.12/bin' >> ~/.bashrc
+RUN echo 'PATH=$PATH:/$PATH:/opt/solana-${SOLANA_VERSION}/bin' >> ~/.bashrc
 
 # COPY solana-run.sh /usr/bin/solana-run.sh
 # ENTRYPOINT [ "/usr/bin/solana-run.sh" ]
