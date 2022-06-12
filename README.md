@@ -1,4 +1,8 @@
 # Solana Docker for Mac M1
+
+_**Please note this project is abandoned - I never got it working on Mac M1 and in the end I switched to Ubuntu on bare-metal.
+I may return to this at a later point, but for now I am not working on this.**_
+
 Docker config for Mac M1, to support development on Solana
 
 # Getting started
